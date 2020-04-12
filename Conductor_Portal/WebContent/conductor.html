@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus_System</title>
+    <link rel="stylesheet" href="conductor.css" />
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+    <ul>
+        <li><a class="active" href="#home">Home</a></li>
+        <li><a href="#events">Maps</a></li>
+        <li><a href="#contact">Routes</a></li>
+        <li style="float:right"><a href="#about">Contact Us</a></li>
+    </ul>
+    <h1 font-face = "Comic sans MS" id="Head"><b>Conductor Portal</b></h1>
+    <div id="hehe">
+        <div class="colmn" id="main_colmn">
+            <!-- <button onclick="document.getElementById('logn').style.display='block'" style="width: auto;" id="butt-log">Login</button> -->
+            <div id="logn" class="model">
+                    <div class="login_page" id="page">
+                        <img src="image.jpg" alt="Avatar" class="avatar" /><br />
+                        <label class="labels">User Name :</label>
+                        <input type="text" placeholder="Enter User_Name" class="inp" id="u_name" required/>
+                        <label class="labels">Password :</label>
+                        <input type="password" placeholder="Enter Password" class="inp" id="pass" required/>
+                        <button id="submit" >Login</button>
+                        <button onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                    </div>
+            </div>
+        </div>
+     </div>
+    <div class="footer">
+        <p>@ Indian Transport Co-orperation,Meerut</p>
+        <p>Designed by:####</p>
+    </div>
+    <script type="text/javascript" src="conductor.js"></script>
+    <script>
+    $(document).on("click", "#submit",function() { 
+        $.get("c_servlet",
+        		{
+        		  'id': "print",
+        		  'name':document.getElementById("u_name").value,
+        		  'password':document.getElementById("pass").value,
+        		  'permit':true
+      			  }
+        ).done(function(response) {   
+        	$("#hehe").html(response);
+        });
+    });
+    </script>
+</body>
+</html>

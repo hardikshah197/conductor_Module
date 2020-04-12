@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <title>RailwaysBusAdmin</title>
+    <link href="admin.css" rel="stylesheet" />
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  </head>
+  <body>
+    <div id="header">
+         BUS ADMIN
+    </div>
+    <div id="window">
+        <div id="mySidenav" class="sidenav">
+            <br/><br/><b id= "navhead">Manage :-</b><br/><br/><br/>
+            <a href="addBus.html">Add Bus</a>
+            <a href="modify.html">Modify Stops</a>
+            <a href="DeleteBus.html">Delete Bus</a>
+            <a href="AssCond.html" id="highlight">Associate Conductor</a>
+            <a href="index.html">Index</a>
+        </div>
+
+    <div id="main">
+        <input id="uname" type="text"></input>
+        <input id="pass" type="password"></input>
+        <button id="submit"></button>
+    </div>
+	</div>
+    <div id="footer"></div>
+    
+    <script>
+    $(document).on("click", "#submit",function() { 
+        $.get("login",
+        		{
+        		  'id': "print",
+        		  'name':document.getElementById("uname").value,
+        		  'password':document.getElementById("pass").value,
+      			  }
+        ).done(function(response) {   
+        	$("#main").html(response);
+        });
+    });
+    </script>
+  </body>
+</html>
