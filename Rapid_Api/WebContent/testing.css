@@ -1,0 +1,21 @@
+*{
+    font-family: Comic sans MS;
+}
+h1 {
+    text-align: center;
+    color: #f75d59;
+    }
+.inbx{
+    align-content: center;
+    text-align: center;
+    padding-left: 100px;
+    margin-left: 100px;
+    border: black 1px solid;
+}
+#tim{
+    align-content: center;
+}
+button{
+    width: auto;
+    height: auto;
+}

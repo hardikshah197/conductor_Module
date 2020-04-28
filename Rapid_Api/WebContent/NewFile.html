@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api_Testing</title>
+    <link rel="stylesheet" href="./testing.css" type="text/css">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+    <div id="input-box" class="inbx">
+        <h1 class="Heading">Api_Testing</h1>
+        <time id="tim">Current-Time</time><br /><br />
+        <input id="pnr" placeholder="Enter Pnr no."><br /><br />
+        <button type="button" onclick="fun()">Click</button>
+        <!-- <button type="submit" onsubmit="fun()"></button> -->
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- Querystring library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.7.0/qs.min.js"></script>
+ <script type="text/javascript" >
+ var r={
+		 "name":"hardy",
+		 "surname":"shah"
+ };
+ function fun() {
+		var s=document.getElementById("pnr").value;
+		console.log(s);
+		fetch("https://indianrailways.p.rapidapi.com/index.php?pnr="+s.toString(), {
+			"method": "GET",
+			"headers": {
+				"x-rapidapi-host": "indianrailways.p.rapidapi.com",
+				"x-rapidapi-key": "aa825c625amsh2ec4231e4ca33d9p16f572jsn413bcf0ef10d"
+			}
+		})
+		.then(response => {
+			r=response.json();
+			console.log(r);
+		})
+		.catch(err => {
+			console.log(err);
+		});
+	}
+$(document).on("click", "#submit",function() { 
+    $.get("Rapid_api",
+    		{
+    		  'id': "print",
+    		  'st': r
+    		  }
+    ).done(function(response) {   
+    	$("#hehe").html(response);
+    });
+});
+</script>
+</body>
+</html>
